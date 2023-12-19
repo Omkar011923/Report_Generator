@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ReportPage from "./pages/ReportPage";
+import Layout from "./Layout";
 
-function App() {
+export default function App() {
+  const [isLogged, setIsLogged] = useState(false);
+  let loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        {!loggedUser ? (
+          <Routes>
+            <Route path="/" element={isLogged ? (<HomePage/>) : (<LoginPage loggedIn={setIsLogged}/>)} />
+          </Routes>
+        ) : (
+          <Layout loggedIn={setIsLogged}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path=":name" element={<ReportPage />} />
+            </Routes>
+          </Layout>
+        )}
+      </BrowserRouter>
+    </>
   );
 }
-
-export default App;

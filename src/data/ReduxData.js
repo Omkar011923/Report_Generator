@@ -1,0 +1,22 @@
+export const ReduxData = [
+    'Store',
+    'Actions',
+    'Reducers',
+    'Dispatch',
+    'Selectors',
+    'Redux Flow',
+    'Immutable State',
+    'Actions and Action Creators',
+    'Reducers',
+    'Middleware',
+    'Async Actions',
+    'Redux DevTools',
+    'Redux Toolkit',
+    'Async Flow with Redux Toolkit',
+    'Middleware and Enhancers',
+    'Testing Redux',
+    'Persisting State',
+    'Redux in Real-World Applications',
+    'Best Practices',
+    'Redux Ecosystem'
+] ;

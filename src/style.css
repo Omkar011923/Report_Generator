@@ -1,0 +1,10 @@
+@tailwind base;
+.css-19kzrtu{
+    padding: 0px !important;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+@tailwind components;
+@tailwind utilities;
+

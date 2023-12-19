@@ -1,0 +1,23 @@
+export const CSSData = [
+    'Selectors',
+    'Properties and Values',
+    'Box Model',
+    'Typography',
+    'Colors and Backgrounds',
+    'Layout',
+    'Box Sizing ',
+    'Pseudo-classes and Pseudo-elements',
+    'Transitions and Animations ',
+    'Transforms',
+    'Responsive Design',
+    'Flexbox',
+    'Grid Layout',
+    'CSS Variables (Custom Properties)',
+    'CSS Preprocessors ',
+    'CSS Frameworks ',
+    'CSS Architecture and Methodologies',
+    'Cross-browser Compatibility',
+    'CSS3 Features',
+    'Debugging and Browser Dev Tools',
+    'CSS Flexibility and Modularity'
+];

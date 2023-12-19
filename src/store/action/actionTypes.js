@@ -1,0 +1,16 @@
+export const ADD_NAME = 'ADD_NAME';
+export const ADD_LAST_NAME = 'ADD_LAST_NAME';
+export const ADD_EMAIL = 'ADD_EMAIL';
+export const ADD_PHONE_NO = 'ADD_PHONE_NO';
+export const ADD_MENTOR_NAME = 'ADD_MENTOR_NAME';
+export const ADD_BATCH_CODE = 'ADD_BATCH_CODE';
+export const ADD_MENTOR_FEEDBACK = 'ADD_MENTOR_FEEDBACK';
+export const SIGNIN_DETAILS = 'SIGNIN_DETAILS';
+export const UPDATE_LOGIN = 'UPDATE_LOGIN';
+export const ADD_HTML_COUNT = 'ADD_HTML_COUNT';
+export const ADD_CSS_COUNT = 'ADD_CSS_COUNT';
+export const ADD_JS_COUNT = 'ADD_JS_COUNT';
+export const ADD_REACT_COUNT = 'ADD_REACT_COUNT';
+export const ADD_REDUX_COUNT = 'ADD_REDUX_COUNT';
+export const ADD_CONCEPT_COUNT = 'ADD_CONCEPT_COUNT';
+export const ADD_SOFTSKILL_COUNT = 'ADD_SOFTSKILL_COUNT';

@@ -1,0 +1,22 @@
+export const HTMLData = [
+    'Basic Structure',
+    'HTML Elements',
+    'Attributes',
+    'HTML Forms',
+    'Semantic Elements',
+    'HTML Tables',
+    'HTML Forms',
+    'HTML5 Media',
+    'Links and Navigation',
+    'Comments',
+    'HTML Entities',
+    'HTML Forms and Input Validation',
+    'HTML Meta Tags',
+    'HTML Semantics and SEO',
+    'HTML5 APIs',
+    'Responsive Web Design',
+    'Accessibility (A11y) ',
+    'HTML Validation ',
+    'HTML Best Practices ',
+    'HTML5 and Beyond'
+] ;
