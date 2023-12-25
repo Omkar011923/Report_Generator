@@ -1,17 +1,12 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
-import { TextField } from "@mui/material";
-
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
 import BatchData from "../components/BatchData";
-import { useNavigate } from "react-router-dom";
+import { TextField, Button } from "@mui/material";
 
 function VerticalTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -52,12 +47,30 @@ export default function ButtonAppBar() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
- 
+  // localStorage.setItem('batches',JSON.stringify(batches))
+  const [newBatch , setNewBatch] = React.useState(' ');
+  const [currentBatch , setCurrentBatch] = React.useState([]);
+  
+  const addBatch = () => {
+    let batchData = JSON.parse(localStorage.getItem('batches'))
+    if(batchData){
+      let batch = [...batchData , newBatch]
+      localStorage.setItem('batches',JSON.stringify(batch))
+    }else{
+    let batches = [];
+    batches.push(newBatch);
+    localStorage.setItem('batches',JSON.stringify(batches))
+  }
+}
+  React.useEffect(()=>{
+    let currentBatches = JSON.parse(localStorage.getItem('batches'))
+    setCurrentBatch(currentBatches)
+  },[addBatch])
+
   return (
     <div>
-     
-      <div className="px-32 py-5 pt-20 flex gap-5">
-        <div className="w-[17%] shadow-lg h-[84vh] flex flex-col gap-5 py-5">
+      <div className="px-32 py-4 pt-24 flex gap-5 bg-slate-50">
+        <div className="w-[17%] shadow-lg h-[84vh] flex flex-col gap-5 py-5 bg-white">
           <p className="text-xl font-semibold text-center">All Batches</p>
           <div className="flex flex-col gap-4 items-center">
             <TabContext>
@@ -69,20 +82,27 @@ export default function ButtonAppBar() {
                 aria-label="Vertical tabs example"
                 sx={{ borderRight: 1, borderColor: "divider", width: "100%" }}
               >
-                <Tab label="Batch 01" {...a11yProps(0)} />
-                <Tab label="Batch 02" {...a11yProps(1)} />
+                {currentBatch.map((batch, index) => (
+                  <Tab label={batch} {...a11yProps(index)} />
+                ))}
+                {/* <Tab label="Batch 02" {...a11yProps(1)} /> */}
               </Tabs>
             </TabContext>
+            <div className=" flex flex-col gap-3 px-3">
+              <TextField size="small" onChange={(e)=>setNewBatch(e.target.value)}/>
+              <Button variant="contained"  fullWidth onClick={addBatch}>
+                Add batch
+              </Button>
+            </div>
           </div>
         </div>
-        <div className="p-0 w-full">
+        <div className="w-full bg-white">
           <TabContext>
-            <VerticalTabPanel value={value} index={0}>
-              <BatchData batch='Batch 01'/>
-            </VerticalTabPanel>
-            <VerticalTabPanel value={value} index={1}>
-              <BatchData batch='Batch 02'/>
-            </VerticalTabPanel>
+            {currentBatch.map((batch, index) => (
+              <VerticalTabPanel value={value} index={index}>
+                <BatchData batch={batch} />
+              </VerticalTabPanel>
+            ))}
           </TabContext>
         </div>
       </div>

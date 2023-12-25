@@ -5,8 +5,7 @@ import Checkbox from "@mui/material/Checkbox";
 export default function CheckboxData(props) {
   return (
     <div>
-      <Checkbox size="small" onChange={props.change}/>
-      <span>{props.data}</span>
+      <FormControlLabel control={<Checkbox  onClick={props.change}/>} label={props.data} />
     </div>
   );
 }

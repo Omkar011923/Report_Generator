@@ -8,6 +8,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import { TextField } from "@mui/material";
 import StudentData from "./StudentData";
 import { ToastContainer, toast } from "react-toastify";
+import SearchBar from "./SearchBar";
 
 export default function BatchData(props) {
   const [value, setValue] = React.useState("1");
@@ -119,11 +120,22 @@ export default function BatchData(props) {
     setStudents(studentDatabase);
   }, [studentData]);
 
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = (searchTerm) => {
+    console.log('Search Term:', searchTerm);
+  };
+
   return (
     <>
       <ToastContainer />
       <div className="flex flex-1 flex-col shadow-lg">
-        <h1 className="text-2xl p-5 font-semibold">{props.batch}</h1>
+        <div className="flex justify-between p-4">
+          <h1 className="text-2xl font-semibold">{props.batch}</h1>
+          <div className="flex gap-3">
+          <SearchBar onSearch={handleSearch} />
+          </div>
+        </div>
         <div className="w-full">
           <TabContext value={value}>
             <Box

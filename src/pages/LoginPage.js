@@ -110,6 +110,7 @@ export default function LoginPage(props) {
         loginPassword,
       };
       localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+      localStorage.setItem('islogged',true)
       props.loggedIn(true)
       navigate('/');
     }

@@ -7,13 +7,15 @@ import Layout from "./Layout";
 
 export default function App() {
   const [isLogged, setIsLogged] = useState(false);
-  let loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  let User = JSON.parse(localStorage.getItem("islogged"));
+  // let loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
   return (
     <>
       <BrowserRouter>
-        {!loggedUser ? (
+        {!User ? (
           <Routes>
-            <Route path="/" element={isLogged ? (<HomePage/>) : (<LoginPage loggedIn={setIsLogged}/>)} />
+            <Route path="/" element={<LoginPage loggedIn={setIsLogged} />} />
+            <Route path="/login" element={<LoginPage loggedIn={setIsLogged} />} />
           </Routes>
         ) : (
           <Layout loggedIn={setIsLogged}>

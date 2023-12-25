@@ -9,7 +9,7 @@ export const PrintPage = React.forwardRef((props , ref) => {
   return (
     <div
       ref={ref}
-      className="p-10 bg-white flex flex-col gap-3 shadow-lg"
+      className="p-10 bg-white w-[21cm] h-[29.6cm] flex flex-col gap-3 shadow-lg"
     >
       <div className="h-12 flex items-center justify-start mb-5">
         <img src="https://techpaathshala.com/assets/images/general/footer-logo.svg" alt="Logo" className="w-40 "/>
@@ -40,7 +40,7 @@ export const PrintPage = React.forwardRef((props , ref) => {
             </p>
             <p className="leading-8 text-lg">
               Phone :{" "}
-              <span>{useSelector((state) => state.details.phoneNo)}</span>
+              <span>+91-{useSelector((state) => state.details.phoneNo)}</span>
             </p>
             <p className="leading-8 text-lg">
               Mentor Name :{" "}
@@ -72,7 +72,7 @@ export const PrintPage = React.forwardRef((props , ref) => {
             <h1 className="font-medium text-xl text-center tracking-wider mb-1">
               Summary
             </h1>
-            <hr className="bg-black h-[1px]"/>
+            <hr className="bg-black h-[0.5px]"/>
           </div>
           <div className="flex h-[280px]">
             <BarChart
@@ -138,20 +138,12 @@ export const PrintPage = React.forwardRef((props , ref) => {
           <h1 className="font-medium text-xl text-center tracking-wider mb-1">
             Mentor Feedback
           </h1>
-          <hr className="bg-black h-[1px]"/>
+          <hr className="bg-black h-[0.5px]"/>
         </div>
         <div className="w-full break-words whitespace-pre-wrap">
           <p className="px-10">
             {useSelector((state) => state.details.mentorFeedback)}
           </p>
-        </div>
-      </div>
-      <div className="border-2 border-solid border-slate-300  rounded-lg p-5">
-        <div>
-          <h1 className="font-medium text-xl text-center tracking-wider mb-1">
-            Improvement Needs
-          </h1>
-          <hr className="bg-black h-[1px]"/>
         </div>
       </div>
     </div>

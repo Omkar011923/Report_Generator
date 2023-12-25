@@ -73,17 +73,51 @@ export default function ReportPage(props) {
       alert("Please Complete all sections to generate report!");
     }
   };
-  const result = useSelector((state) => state.details.name);
+  const firstName = useSelector((state) => state.details.name);
+  const html = useSelector((state) => state.subjectCounts.htmlCount);
+  const css = useSelector((state) => state.subjectCounts.cssCount);
+  const js = useSelector((state) => state.subjectCounts.jsCount);
+  const react = useSelector((state) => state.subjectCounts.reactCount);
+  const redux = useSelector((state) => state.subjectCounts.reduxCount);
+  const concept = useSelector((state) => state.subjectCounts.conceptCount);
+  const softSkill = useSelector((state) => state.subjectCounts.softSkillCount);
+  const mentorFeedback = useSelector((state) => state.details.mentorFeedback);
+
   const submitData = () => {
-    if (!result) {
+    if (!firstName) {
       alert("Please fill student details");
-    } else {
+    }
+    else if(!html){
+      alert('html not filled')
+    } 
+    else if(!css){
+      alert('css not filled')
+    }
+    else if(!js){
+      alert('js not filled')
+    }
+    else if(!react){
+      alert('react not filled')
+    }
+    else if(!redux){
+      alert('redux not filled')
+    }
+    else if(!concept){
+      alert('concept not filled')
+    }
+    else if(!softSkill){
+      alert('softSkill not filled')
+    }
+    else if(!mentorFeedback){
+      alert('Mentor feedback not filled')
+    }
+    else {
       setPrint(true);
       alert("You can download report by clicking download button ");
     }
   };
   return (
-    <div className="flex bg-white w-full justify-center py-20 ">
+    <div className="flex bg-slate-50 w-full justify-center pt-20 ">
       <div className="w-[50%] px-5 pl-10 py-5 flex flex-col gap-3">
         <div className="flex py-5 justify-between px-5 bg-white rounded-md shadow-sm border-b-2 ">
           <h1 className="text-3xl font-medium uppercase tracking-wider">
@@ -292,35 +326,6 @@ export default function ReportPage(props) {
                   onChange={(e) => {
                     dispatch(addMentorFeedback(e.target.value));
                   }}
-                />
-              </div>
-            </AccordionDetails>
-          </Accordion>
-        </div>
-        <div>
-          <Accordion sx={{ paddingTop: 1, paddingBottom: 1 }}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <Typography
-                sx={{ fontSize: 18, fontWeight: 600, letterSpacing: 1 }}
-              >
-                Improvement Needed
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <div>
-                <TextField
-                  id="standard-multiline-flexible"
-                  label="Improvement"
-                  multiline
-                  fullWidth
-                  variant="standard"
-                  // onChange={(e) => {
-                  //   dispatch(addMentorFeedback(e.target.value));
-                  // }}
                 />
               </div>
             </AccordionDetails>
